@@ -1,0 +1,24 @@
+import numpy as np
+
+for _ in range(int(input())):
+    rc = 0
+    cc = 0
+    n = int(input())
+    a = []
+    for i in range(n):
+        m = list(map(int, input().rstrip().split()))
+        a.append(m)
+    a = np.array(a)
+    t = np.trace(a)
+    for i in range(n):
+        r = a[i]
+        r = set(r)
+        if len(r)<n:
+            rc += 1
+        c = a[:, i]
+        #print(c)
+        c =  set(c)
+        #print(c)
+        if len(c)<n:
+            cc += 1
+    print("Case #{}: {} {} {}".format((_+1),t,rc,cc))

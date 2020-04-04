@@ -1,0 +1,23 @@
+for k in range(int(input())):
+    s=str(input())
+    c=""
+    n=0
+    
+    if len(s)<101 and len(s)>0:
+        for i in range(len(s)):
+            if(n==int(s[i])):
+                c+=s[i]
+            elif(n>int(s[i])):
+                for j in range(n-int(s[i])):
+                    c=c+')'
+                    n=n-1
+                c=c+s[i]
+            else:
+                for j in range(int(s[i])-n):
+                    c=c+'('
+                    n=n+1
+                c=c+s[i]
+            if(i==len(s)-1):
+                for i in range(n):
+                    c=c+')'
+        print('Case #{}: {}'.format((k+1),c))
